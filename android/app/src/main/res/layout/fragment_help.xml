@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="AboutUs"
+            android:textColor="@color/title"
+            android:textSize="24sp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="회사명: 주식회사 키위"
+                    android:textSize="14sp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/info"/>
+
+                <View
+                    android:layout_width="340dp"
+                    android:layout_height="1dp"
+                    android:background="@color/title"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대표자: 노광현"
+                    android:textSize="14sp"
+                    android:textColor="@color/info"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"/>
+
+                <View
+                    android:layout_width="340dp"
+                    android:layout_height="1dp"
+                    android:background="@color/title"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="개인정보관리자책임자: 서윤석"
+                    android:textSize="14sp"
+                    android:textColor="@color/info"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"/>
+
+                <View
+                    android:layout_width="340dp"
+                    android:layout_height="1dp"
+                    android:background="@color/title"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서비스운영책임자: 윤태일"
+                    android:textSize="14sp"
+                    android:textColor="@color/info"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"/>
+
+                <View
+                    android:layout_width="340dp"
+                    android:layout_height="1dp"
+                    android:background="@color/title"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서버관리자: 이민영"
+                    android:textSize="14sp"
+                    android:textColor="@color/info"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"/>
+
+                <View
+                    android:layout_width="340dp"
+                    android:layout_height="1dp"
+                    android:background="@color/title"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사업자등록번호: 317-86-00123"
+                    android:textSize="14sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/info"/>
+
+                <View
+                    android:layout_width="340dp"
+                    android:layout_height="1dp"
+                    android:background="@color/title"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="통신판매업신고: 제2018-서울성북-01733호"
+                    android:textSize="14sp"
+                    android:textColor="@color/info"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"/>
+
+                <View
+                    android:layout_width="340dp"
+                    android:layout_height="1dp"
+                    android:background="@color/title"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="주소:서울시 성북구 삼선교로16길 116 연구관910"
+                    android:textSize="14sp"
+                    android:textColor="@color/info"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"/>
+
+                <View
+                    android:layout_width="340dp"
+                    android:layout_height="1dp"
+                    android:background="@color/title"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:layout_gravity="center_horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전화: 010-3807-0607"
+                    android:textSize="14sp"
+                    android:textColor="@color/info"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"/>
+
+                <View
+                    android:layout_width="340dp"
+                    android:layout_height="1dp"
+                    android:background="@color/title"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

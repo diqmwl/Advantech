@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".TermActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_margin="13dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/Term_Activity_left_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/left_arrow2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="이용 약관"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/Term_Activity_Term1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/BasicTextSize"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/BasicTextSize"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded2"
+            android:text="개인정보 취급방침" />
+
+        <Button
+            android:id="@+id/Term_Activity_Term2"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/BasicTextSize"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/BasicTextSize"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded2"
+            android:text="대여 약관" />
+
+        <Button
+            android:id="@+id/Term_Activity_Term3"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/BasicTextSize"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/BasicTextSize"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded2"
+            android:text="서비스 이용약관" />
+
+        <Button
+            android:id="@+id/Term_Activity_Term4"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/BasicTextSize"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/BasicTextSize"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded2"
+            android:text="위치기반서비스 이용약관" />
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

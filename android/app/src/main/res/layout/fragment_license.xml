@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:padding="15dp"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".LicenseFragment">
+
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자동차 운전면허를 등록해주세요"
+        android:textColor="@drawable/black_color"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+    <!--면허증 모양-->
+    <RelativeLayout
+        android:id="@+id/License_Fragment_Relative"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="자동차 운전 면허증(Driver's License)"
+            android:textColor="@drawable/black_color" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="26dp"
+            android:text="면허번호를 입력해 주세요" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="56dp"
+            android:text="이름을 입력해 주세요" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="85dp"
+            android:text="생년월일을 입력해주세요" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/border"
+        android:layout_margin="5dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:text="이름" />
+
+        <EditText
+            android:id="@+id/License_Fragment_DriverName"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:background="@null"
+            android:hint="000"
+            android:singleLine="true"
+            android:nextFocusDown="@id/License_Fragment_Year"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/border"
+        android:padding="5dp"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:text="생년월일" />
+
+        <EditText
+            android:id="@+id/License_Fragment_Year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:background="@null"
+            android:maxLength="4"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:hint="0000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:text="년"
+            android:paddingRight="10dp"/>
+
+        <EditText
+            android:id="@+id/License_Fragment_Month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:background="@null"
+            android:hint="00"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:maxLength="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:text="월"
+            android:paddingRight="10dp"/>
+
+        <EditText
+            android:id="@+id/License_Fragment_Day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:background="@null"
+            android:hint="00"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:maxLength="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:paddingRight="10dp"
+            android:text="일" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/border"
+        android:padding="5dp"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:text="면허번호" />
+
+        <EditText
+            android:id="@+id/License_Fragment_DriverNumber1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:background="@null"
+            android:maxLength="2"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:hint="00" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:text=" - " />
+
+        <EditText
+            android:id="@+id/License_Fragment_DriverNumber2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:background="@null"
+            android:hint="00"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:maxLength="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:text=" - " />
+
+        <EditText
+            android:id="@+id/License_Fragment_DriverNumber3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:background="@null"
+            android:hint="000000"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:maxLength="6"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:text=" - " />
+
+        <EditText
+            android:id="@+id/License_Fragment_DriverNumber4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:background="@null"
+            android:hint="00"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:maxLength="2"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/border"
+        android:padding="5dp"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:text="식별번호" />
+
+        <EditText
+            android:id="@+id/License_Fragment_IdentifyNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/black_color"
+            android:textSize="@dimen/BasicTextSize"
+            android:background="@null"
+            android:maxLength="6"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:hint="000000" />
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/License_Fragment_RegisterLivense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="면허 등록하기 !"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:background="@drawable/rounded"
+        />
+
+
+
+
+
+
+
+</LinearLayout>
