@@ -13,13 +13,19 @@ const Board = require('../models/Board');
 const Reply = require('../models/Reply');
 const GpsService = require('../models/GpsService')
 
+//핸드폰인증
+router.post('/smsAuth', function(req, res, next) {
+  var rand;
+  const phonenumber = req.body.phonenumber;
+  User.smsAuth(phonenumber, (result, err) => {
+    res.send(result.toString());
+  })
+})
+
 //회원가입
 router.post('/register', function(req, res, next) {
   const newUser = new User({
     name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-    pass: req.body.pass,
     license_num: req.body.license_num,
     license_issued: req.body.license_issued,
     license_expiration: req.body.license_expiration
@@ -44,40 +50,23 @@ router.get('/', function(req, res, next) {
 //==================================================<
 //유저로그인
 router.post('/authenticate', function(req, res, next) {
-  const email = req.body.email;
-  const password = req.body.password;
-
-  User.getUserByEmail(email, (err, user) => {
-    // if(err) throw err;
-    if(!user) {
-     return res.json('0');
+  const phonenumber = req.body.phonenumber;
+  User.userCheck(phonenumber, (err, result) => {
+    console.log(result+"이건 유저체크");
+    if(result == null) {
+      const newUser = new User();
+      newUser.phoneid = phonenumber; newUser.license_num = "0";
+      newUser.license_issued = "0"; newUser.license_expiration = "0";
+      User.addUser(newUser);
+      res.send("register");
+      console.log("회원가입 성공");
+    } else {
+      res.send("success");
+      console.log("로그인 성공");
     }
-
-    User.comparePassword(password, user.password, (err, isMatch) => {
-      // if(err) throw err;
-      if(isMatch) {
-        const token = jwt.sign({data: user}, config.secret, {
-          expiresIn: 604800  // 1 week in seconds
-        });
-        res.json({
-          success: true,
-          token: 'JWT '+token,
-          user: {
-            id: user._id,
-            name: user.name,
-            email: user.email,
-            license_num: user.license_num,
-            license_issued: user.license_issued,
-            license_expiration: user.license_expiration
-          }
-        });
-      } else {
-        return res.json('0');
-      }
-    })
   })
-});
 
+});
 //유저정보보내기
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
   res.json({user: req.user});
@@ -262,9 +251,29 @@ router.get('/gpsinfor', (req, res,next) => {
 
 router.get('/test', (req, res,next) => {
 
-request("http://sjh836.tistory.com", function(err, res, body) { console.log(body); });
+//request("https://portal-rmm-iw-kiwi-default-space.wise-paas.io/rmm/packagecontrol/cluster/package/uploadstatus?stgId=1&names=0&names=0", function(err, res, body) {
+//console.log(body); });
 
-});
-
+var jsonDataObj = {"agentId":"00000001-0000-0000-0000-14DDA9D47E6A",
+  "rules":[
+     {
+        "plugin":"NetMonitor",
+        "jsonrule":"{\"Thresholds\":[{\"enable\":\"true\",\"min\":10,\"max\":20,\"type\":3,\"lastingTimeS\":10,\"intervalTimeS\":60,\"bu\":\"\",\"n\":\"00000001-0000-0000-0000-14DDA9D47E6A/NetMonitor/netMonInfoList/Index0/Link SpeedMbps\",\"action\":[{\"n\":\"00000001-0000-0000-0000-14DDA9D47E6A/power_onoff/wol\"},{\"enable\":\"true\",\"min\":-1,\"max\":1,\"type\":3,\"lastingTimeS\":10,\"intervalTimeS\":60,\"bu\":\"\",\"n\":\"00000001-0000-0000-0000-14DDA9D47E6A/NetMonitor/netMonInfoList/Index0/sendDataByte\",\"action\":[{\"n\":\"00000001-0000-0000-0000-14DDA9D47E6A/power_onoff/wol\"}]}"
+     },
+     {
+        "plugin":"SUSIControl",
+        "jsonrule":"{\"Thresholds\":[{\"enable\":\"true\",\"id\":17105409,\"min\":1,\"max\":2,\"type\":3,\"lastingTimeS\":10,\"intervalTimeS\":60,\"bu\":\"V\",\"n\":\"00000001-0000-0000-0000-14DDA9D47E6A/SUSIControl/Backlight/Backlight 1/frequency\"}]}"
+     }
+  ] };
+request.post({
+  headers: {'content-type': 'application/json', 'accept-type':'application/json'},
+  url:     'https://portal-rmm-iw-kiwi-default-space.wise-paas.io/rmm/v1/rules/device',
+  json: true,
+  body:    jsonDataObj,
+}, function(error, response, body){
+  console.log(body);
+  res.end()
+})
+})
 module.exports = router;
 
