@@ -23,22 +23,6 @@ router.post('/smsAuth', function(req, res, next) {
 })
 
 //회원가입
-router.post('/register', function(req, res, next) {
-  const newUser = new User({
-    name: req.body.name,
-    license_num: req.body.license_num,
-    license_issued: req.body.license_issued,
-    license_expiration: req.body.license_expiration
-  });
-
-  User.addUser(newUser, (err, user) => {
-    if(err){
-      res.json({success: false, msg:'Failed to register user', err: err})
-    } else {
-      res.json({success: true, msg:'User registered'})
-    }
-  });
-});
 
 //=======================================>
 
@@ -50,13 +34,14 @@ router.get('/', function(req, res, next) {
 //==================================================<
 //유저로그인
 router.post('/authenticate', function(req, res, next) {
-  const phonenumber = req.body.phonenumber;
-  User.userCheck(phonenumber, (err, result) => {
+  const phoneid = req.body.phoneid;
+  User.userCheck(phoneid, (err, result) => {
     console.log(result+"이건 유저체크");
     if(result == null) {
       const newUser = new User();
-      newUser.phoneid = phonenumber; newUser.license_num = "0";
-      newUser.license_issued = "0"; newUser.license_expiration = "0";
+      newUser.phoneid = phoneid; newUser.license_num = "0";
+      newUser.license_identify = "0"; newUser.license_birth = "0";
+      newUser.license_name = "0";
       User.addUser(newUser);
       res.send("register");
       console.log("회원가입 성공");
@@ -71,27 +56,10 @@ router.post('/authenticate', function(req, res, next) {
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
   res.json({user: req.user});
 });
-
-//교환소정보보내기
-router.get('/BikeStorage', (req, res,next) => {
-  BikeStorage.getBikeStorageAll((err, BikeStorage) => {
-    console.log(BikeStorage);
-    res.json({BikeStorage: BikeStorage});
-  });
-});
-
 //유저정보보내기
 router.get('/userinfor', (req, res,next) => {
   User.getUser((err, User) => {
     res.json(User);
-  });
-});
-
-//bike정보보내기
-router.get('/Bike', (req, res,next) => {
-  Bike.getBikeAll((err, Bike) => {
-    console.log(Bike);
-    res.json({Bike: Bike});
   });
 });
 
@@ -248,30 +216,42 @@ router.get('/gpsinfor', (req, res,next) => {
   });
 });
 //==================================================>
+router.post('/addlicense', function(req, res, next) { 
+  const newUser = new User({
+  phoneid: req.body.phoneid,
+  license_num: req.body.license_num,
+  license_name: req.body.license_name,
+  license_birth: req.body.license_birth,
+  license_identify: req.body.license_identify
+  });
+  User.modifyUser(newUser, (err, user) => {
+    if(err){
+      res.send("0") //에러
+    } else {
+      res.send("1") //성공
+    }
+  });
+});
+
 
 router.get('/test', (req, res,next) => {
 
 //request("https://portal-rmm-iw-kiwi-default-space.wise-paas.io/rmm/packagecontrol/cluster/package/uploadstatus?stgId=1&names=0&names=0", function(err, res, body) {
 //console.log(body); });
 
-var jsonDataObj = {"agentId":"00000001-0000-0000-0000-14DDA9D47E6A",
-  "rules":[
-     {
-        "plugin":"NetMonitor",
-        "jsonrule":"{\"Thresholds\":[{\"enable\":\"true\",\"min\":10,\"max\":20,\"type\":3,\"lastingTimeS\":10,\"intervalTimeS\":60,\"bu\":\"\",\"n\":\"00000001-0000-0000-0000-14DDA9D47E6A/NetMonitor/netMonInfoList/Index0/Link SpeedMbps\",\"action\":[{\"n\":\"00000001-0000-0000-0000-14DDA9D47E6A/power_onoff/wol\"},{\"enable\":\"true\",\"min\":-1,\"max\":1,\"type\":3,\"lastingTimeS\":10,\"intervalTimeS\":60,\"bu\":\"\",\"n\":\"00000001-0000-0000-0000-14DDA9D47E6A/NetMonitor/netMonInfoList/Index0/sendDataByte\",\"action\":[{\"n\":\"00000001-0000-0000-0000-14DDA9D47E6A/power_onoff/wol\"}]}"
-     },
-     {
-        "plugin":"SUSIControl",
-        "jsonrule":"{\"Thresholds\":[{\"enable\":\"true\",\"id\":17105409,\"min\":1,\"max\":2,\"type\":3,\"lastingTimeS\":10,\"intervalTimeS\":60,\"bu\":\"V\",\"n\":\"00000001-0000-0000-0000-14DDA9D47E6A/SUSIControl/Backlight/Backlight 1/frequency\"}]}"
-     }
-  ] };
+var jsonDataObj = {
+"username": "arc9367@gmail.com",
+"password": "Zhsks9367!"
+//"redirectUri": "http://ec2-18-219-8-38.us-east-2.compute.amazonaws.com/users/test"
+}
 request.post({
   headers: {'content-type': 'application/json', 'accept-type':'application/json'},
-  url:     'https://portal-rmm-iw-kiwi-default-space.wise-paas.io/rmm/v1/rules/device',
+  url:     'https://portal-sso.wise-paas.com/v2.0/auth/native',
   json: true,
   body:    jsonDataObj,
 }, function(error, response, body){
   console.log(body);
+//  console.log(response);
   res.end()
 })
 })

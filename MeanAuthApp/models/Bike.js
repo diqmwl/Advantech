@@ -4,11 +4,11 @@ const config = require('../config/database');
 
 
 const BikeSchema = mongoose.Schema({
-  name: {
+  id: {
     type: String,
     required: true
   },
-  battery: {
+  bikename: {
     type: String,
     required: true
   },
@@ -16,11 +16,19 @@ const BikeSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  battery: {
+    type: String,
+    required: true
+  },
   reserve: {
     type: String,
     required: true
   },
-  email : {
+  latitude : {
+    type: String,
+    required: true
+  },
+  longitude : {
     type: String,
     required: true
   }
