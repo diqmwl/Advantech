@@ -598,8 +598,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\jvn33\KIWI\KIWI\src\styles.css */"./src/styles.css");
-module.exports = __webpack_require__(/*! C:\Users\jvn33\KIWI\KIWI\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
+__webpack_require__(/*! C:\Projects\FreeGo_Angular7-_Web_page\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Projects\FreeGo_Angular7-_Web_page\node_modules\bootstrap\dist\css\bootstrap.min.css */"./node_modules/bootstrap/dist/css/bootstrap.min.css");
 
 
 /***/ })
